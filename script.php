@@ -3,17 +3,85 @@
 
 
 
+// $name = readline("Здравствуйте, как вас зовут?\n");
+// $age = readline("Сколько вам лет?\n");
+// echo("Вас зовут $name, вам $age лет\n");
+
+
+
+// $task1 = readline("Какая задача стоит перед вами сегодня?\n");
+// $timeTask1 = readline("Сколько примерно времени эта задача займет?\n");
+// $task2 = readline("Какая задача стоит перед вами сегодня?\n");
+// $timeTask2 = readline("Сколько примерно времени эта задача займет?\n");
+// $task3 = readline("Какая задача стоит перед вами сегодня?\n");
+// $timeTask3 = readline("Сколько примерно времени эта задача займет?\n");
+// $sum = $timeTask1 + $timeTask2 + $timeTask3;
+// echo("$name, сегодня у вас запланировано 3 приоритетных задачи на день:\n-$task1 ($timeTask1 ч)\n-$task2 ($timeTask2 ч)\n-$task3 ($timeTask3 ч)\nПримерное время выполнения плана = $sum ч\n");
+
+
+
+
+// $time = (int)readline("В каком году был основан Санкт-Петербург?\n1307 году\n1037 году\n1703 году\n");
+// if ($time != 1307 && $time != 1037 && $time != 1703){
+//     $time = (int)readline("В каком году был основан Санкт-Петербург?\n1307 году\n1037 году\n1703 году\n");
+// } elseif ($time == 1307 || $time == 1037) {
+//     echo("Ответ неверный\n");
+// } else {
+//     echo("Ответ верный. Поздравляем!\n");
+// }
+
+
+// $time = (int)readline("В каком году был основан Санкт-Петербург?\n1307 году\n1037 году\n1703 году\n");
+// switch (true) {
+//     case $time == 1703:
+//         echo("Ответ верный. Поздравляем!\n");
+//         break;
+//     case $time == 1307 || $time == 1037:
+//         echo("Ответ неверный\n");
+//         break;
+//     default:
+//         $time = (int)readline("В каком году был основан Санкт-Петербург?\n1307 году\n1037 году\n1703 году\n");
+// }
+
+
+
+
 $name = readline("Здравствуйте, как вас зовут?\n");
 $age = readline("Сколько вам лет?\n");
 echo("Вас зовут $name, вам $age лет\n");
 
+$amountTasks = (int)readline("Сколько задач вы запланировали на сегодня?\n");
+echo("$name, сегодня у вас запланировано $amountTasks приоритетных задачи на день:\n");
+$amountTime = 0;
+$taskList = '';
+for ($counter = 0; $counter < $amountTasks; $counter++ ){
+    $task[$counter] = readline("Какая задача стоит перед вами сегодня?\n");
+    $timeTask[$counter] = (int)readline("Сколько примерно времени эта задача займет?\n");
+    
+    $amountTime += $timeTask[$counter];
+    $taskList .= "$task[$counter] " . "$timeTask[$counter]ч\n";
+}
+echo("$name, сегодня у вас запланировано $amountTasks приоритетных задачи на день:\n-$taskList\n");
+echo("Выполнение задачь потребует\t$amountTime ч\n");
 
 
-$task1 = readline("Какая задача стоит перед вами сегодня?\n");
-$timeTask1 = readline("Сколько примерно времени эта задача займет?\n");
-$task2 = readline("Какая задача стоит перед вами сегодня?\n");
-$timeTask2 = readline("Сколько примерно времени эта задача займет?\n");
-$task3 = readline("Какая задача стоит перед вами сегодня?\n");
-$timeTask3 = readline("Сколько примерно времени эта задача займет?\n");
-$sum = $timeTask1 + $timeTask2 + $timeTask3;
-echo("$name, сегодня у вас запланировано 3 приоритетных задачи на день:\n-$task1 ($timeTask1 ч)\n-$task2 ($timeTask2 ч)\n-$task3 ($timeTask3 ч)\nПримерное время выполнения плана = $sum ч\n");
+// $number = readline("Введите число и узнайте на какой палец оно выпадет по счету\n");
+// switch (true) {
+//         case $number % 8 == 1 || $number == 1:
+//             echo("$number по счету выпадает на большой палец\n");
+//             break;
+//         case $number % 8 == 2 || $number % 8 == 0 || $number == 2:
+//             echo("$number по счету выпадает на указательный палец\n");
+//             break;
+//         case $number % 8 == 3 || $number % 8 == 7 || $number == 3 || $number == 7:
+//             echo("$number по счету выпадает на средний палец\n");
+//             break;
+//         case $number % 8 == 4 || $number % 8 == 6 || $number == 4 || $number == 6:
+//             echo("$number по счету выпадает на безимянный палец\n");
+//             break;
+//         case $number % 8 == 5 || $number == 5:
+//             echo("$number по счету выпадает на мизинец\n");
+//             break;
+//         default:
+//         $number = readline("Введите число и узнайте на какой палец оно выпадет по счету\n");
+//     }
