@@ -114,51 +114,161 @@
 
 
 
-$students = [
-    'ИТ20' => [
-        'Иванов Иван' => 5,
-        'Кириллов Кирилл' => 3,
-        'Мирошина Любовь' => 2,
-        'Кондрашева Ксения' => 5,
-        'Красильников Юрий' => 2,
-        'Комаров Владимир' => 5,
-        'Тимофеева Татьяна' => 5
+// $students = [
+//     'ИТ20' => [
+//         'Иванов Иван' => 5,
+//         'Кириллов Кирилл' => 3,
+//         'Мирошина Любовь' => 2,
+//         'Кондрашева Ксения' => 5,
+//         'Красильников Юрий' => 2,
+//         'Комаров Владимир' => 5,
+//         'Тимофеева Татьяна' => 5
 
+//     ],
+//     'БАП20' => [
+//         'Антонов Антон' => 4,
+//         'Анисимова Таисия' => 5,
+//         'Сидоренкова Наталия' => 2,
+//         'Олетин Леонид' => 4,
+//         'Калинина Анна' => 3,
+//         'Поддубная Оксана' => 2,
+//         'Софьянов Вячеслав' => 2
+//     ]
+//  ];
+//     $averageMarkForGroup = [];
+// foreach ($students as $group => $studentList){
+//      $averageMark = array_sum($studentList)/count($studentList);
+//      $averageMarkForGroup[$group] = $averageMark;
+//  }
+//  print_r($averageMarkForGroup);
+//      $last = null;
+//      $max = null;
+// foreach ($averageMarkForGroup as $group => $averageMark){
+//         if ($averageMark > $last){
+//             $last = $averageMark;
+//             $max = $group;
+//         }
+//     }
+//  echo "$max - группа с наибольшим значением успеваемости студентов \n";
+
+// $studentForExpulsion = [];
+// $studentsForExpulsionList = [];
+//  foreach ($students as $group => $studentList){
+//      foreach ($studentList as $studentName => $mark){
+//          if($mark < 3){
+//                 $studentsForExpulsionList[] = $studentName;
+//          }
+//          $studentForExpulsion[$group] = $studentsForExpulsionList;
+//      }
+//  }
+//  print_r($studentForExpulsion);
+
+
+
+
+
+
+
+// $numbers = [4, 5, 1, 4, 7, 6, 8, 15, 6, 71, 45, 2];
+// $result = array_map(function (int $number): string {
+//     if($number % 2 == 0){
+//         $number = "четное";
+//     } else {
+//         $number = "нечетное";
+//     }
+//     return $number;
+//   }, $numbers); 
+  
+//   print_r($result);
+
+//   $evenOdd = fn($n) => ($n & 1)? 'нечетное' : 'четное';
+//   $arr = [4, 5, 1, 4, 7, 6, 8, 15, 6, 71, 45, 2];
+//   $arr2 = array_map($evenOdd, $arr);
+//   print_r($arr2);
+
+// $numbers = [4, 5, 1, 4, 7, 6, 8, 15, 6, 71, 45, 2];
+// $stringEvenOddCheck = function (int $number): string {
+//     return $number & 1 ? 'нечетное' : 'четное';
+// };
+    
+// $result = array_map($stringEvenOddCheck, $numbers);
+// print_r($result);
+
+
+
+
+
+
+// $arr1 = [1,2,3,4,5,6,7,8];
+// $dataAnalysis = function(array $numbers): array{
+//     return [
+//         'max' => max($numbers),
+//         'min' => min($numbers),
+//         'avg' => array_sum($numbers)/count($numbers),
+//     ];
+// };
+
+// print_r($dataAnalysis($arr1));
+
+
+
+
+$box = [
+    [
+        0 => 'Тетрадь',
+        1 => 'Книга',
+        2 => 'Настольная игра',
+        3 => [
+            'Настольная игра',
+            'Настольная игра',
+        ],
+        4 => [
+            [
+                'Ноутбук',
+                'Зарядное устройство'
+            ],
+            [
+                'Компьютерная мышь',
+                'Набор проводов',
+                [
+                    'Фотография',
+                    'Картина'
+                ]
+            ],
+            [
+                'Инструкция',
+                [
+                    'Ключ'
+                ]
+            ]
+        ]
     ],
-    'БАП20' => [
-        'Антонов Антон' => 4,
-        'Анисимова Таисия' => 5,
-        'Сидоренкова Наталия' => 2,
-        'Олетин Леонид' => 4,
-        'Калинина Анна' => 3,
-        'Поддубная Оксана' => 2,
-        'Софьянов Вячеслав' => 2
+    [
+        0 => 'Пакет кошачьего корма',
+        1 => [
+            'Музыкальный плеер',
+            'Книга'
+        ]
     ]
  ];
-    $averageMarkForGroup = [];
-foreach ($students as $group => $studentList){
-     $averageMark = array_sum($studentList)/count($studentList);
-     $averageMarkForGroup[$group] = $averageMark;
- }
- print_r($averageMarkForGroup);
-     $last = null;
-     $max = null;
-foreach ($averageMarkForGroup as $group => $averageMark){
-        if ($averageMark > $last){
-            $last = $averageMark;
-            $max = $group;
+ 
+$text = (string) readline("Введите предмет:");
+
+function search(string $searchThing, array $searchArray):bool
+{
+    foreach($searchArray as $value){
+        if(is_array($value)){
+            if(search($searchThing, $value)){
+                return true;
+            }
+        }else{
+            if($searchThing === $value){
+                return true;
+            }
         }
     }
- echo "$max - группа с наибольшим значением успеваемости студентов \n";
+    return false;
+}
+echo search($text, $box)?'true':'false';
 
-$studentForExpulsion = [];
-$studentsForExpulsionList = [];
- foreach ($students as $group => $studentList){
-     foreach ($studentList as $studentName => $mark){
-         if($mark < 3){
-                $studentsForExpulsionList[] = $studentName;
-         }
-         $studentForExpulsion[$group] = $studentsForExpulsionList;
-     }
- }
- print_r($studentForExpulsion);
+
